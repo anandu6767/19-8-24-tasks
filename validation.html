@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>validation</title>
+        <style>
+            body{
+                padding: 20px 50px;
+                text-align: center;
+                margin: 250px;
+                border: 2px solid rosybrown;
+        
+            }
+            .form1{
+                text-align: center;
+                border-width: 30px;
+                background-color: wheat;
+                box-shadow:2px 2px 5px gray;
+                padding: 20px 30px 20px 30px;
+                margin: auto;
+                
+            }
+            input[type=email]{
+                background-color: aquamarine;
+                color: black;
+                border-radius: 2px;
+                border: 1px solid brown;
+            }
+            button{
+                background-color: greenyellow;
+                border: whitesmoke;
+                border-radius: 2px;
+                margin-top:20px;
+
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: blanchedalmond;
+            }
+            .error{
+                font-size: medium;
+                color: red;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="form1">
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" placeholder="enter your email here" required>
+            <span id="error-message" class="error"></span><br>
+            <button type="submit">Submit</button> 
+        </form>
+    </body>
+    <script>
+        document.getElementById("form1").addEventListener("submit",function(event){
+            event.preventDefault();
+        const emailinput =document.getElementById("email");
+        const error = document.getElementById("error-message");
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if(!emailPattern.test(emailinput.value)){
+            error.textContent="enter valid email";
+        } else{
+            error.textContent="";
+            alert("email validation sucess");
+        }
+        });
+
+    </script>
+</html>
